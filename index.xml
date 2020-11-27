@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project Portifolio on Aditya Nannapaneni</title>
+    <link>https://aditya-nannapaneni.github.io/</link>
+    <description>Recent content in Project Portifolio on Aditya Nannapaneni</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2020 12:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://aditya-nannapaneni.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Taxi Demand Prediction in New York City</title>
+      <link>https://aditya-nannapaneni.github.io/post/project-4/</link>
+      <pubDate>Sun, 27 Sep 2020 11:00:59 -0400</pubDate>
+      
+      <guid>https://aditya-nannapaneni.github.io/post/project-4/</guid>
+      <description>Quick Introduction Regions obtained after clustering the latitudes/longitudes in the dataset   Problem Statement:
+  Objective:
+ At a given time and location in NYC we want to predict the number of pickups in a 10 minutes interval.    Constraints:
+  Latency, we expect the ML model to give us the result in a few seconds. Imagine a senario where you are a cab driver in NYC, you wouldn&amp;rsquo;t want to wait 5 minutes to see the number of pickups in the region surrounding your current location.</description>
+    </item>
+    
+    <item>
+      <title>Facebook Friend Recommendation using Graph Mining</title>
+      <link>https://aditya-nannapaneni.github.io/post/project-3/</link>
+      <pubDate>Thu, 10 Sep 2020 11:00:59 -0400</pubDate>
+      
+      <guid>https://aditya-nannapaneni.github.io/post/project-3/</guid>
+      <description>Quick Introduction In this project we are given a dataset provided by Facebook which contains 2 features as shown below. I&amp;rsquo;ve modeled this data as a directed graph, where each row in the dataset corresponds to a connection(i.e presence of an edge) between a source node and a destination node. Here the nodes represent users in a social networking website like Facebook, Instagram and an edge represents whether they are friends or not / follow each other or not.</description>
+    </item>
+    
+    <item>
+      <title>Quora question pair similarity</title>
+      <link>https://aditya-nannapaneni.github.io/post/project-2/</link>
+      <pubDate>Thu, 10 Sep 2020 11:00:59 -0400</pubDate>
+      
+      <guid>https://aditya-nannapaneni.github.io/post/project-2/</guid>
+      <description>Quick Intro: Given a dataset containing question id&amp;rsquo;s, 2 questions (text format) and a binary target variable we have to predict the target variable of new questions
+   Target Variable Mapping     0 not duplicates   1 duplicates    Problem Statement:
+ Identify which questions asked on Quora are duplicates of questions that have already been asked. This could be useful to instantly provide answers to questions that have already been answered.</description>
+    </item>
+    
+    <item>
+      <title>Building Energy Score Prediction</title>
+      <link>https://aditya-nannapaneni.github.io/post/project-1/</link>
+      <pubDate>Mon, 09 Sep 2019 10:58:08 -0400</pubDate>
+      
+      <guid>https://aditya-nannapaneni.github.io/post/project-1/</guid>
+      <description>Quick Intro:
+ In this project we are given a dataset containing both numerical and categorical features pertaining to buildings in New York City and we have to come up with a model that can predict a building&amp;rsquo;s Energy Star Score (real valued target variable)  Problem Statement: Use the provided building energy data to develop a model that can predict a building&amp;rsquo;s Energy Star score, and then interpret the results to find the variables that are most predictive of the score.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://aditya-nannapaneni.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aditya-nannapaneni.github.io/contact/</guid>
+      <description>   Platform URL     LinkedIn: https://www.linkedin.com/in/anannapaneni/   GitHub: https://github.com/Aditya-Nannapaneni    </description>
+    </item>
+    
+  </channel>
+</rss>
