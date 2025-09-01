@@ -491,6 +491,79 @@
             outline-offset: 2px;
         }
         
+        /* Enhanced animations from React repo */
+        .animate-fade-up {
+            animation: fade-up 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fade-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Enhanced card hover effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Enhanced button interactions */
+        .btn-enhanced {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-enhanced:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section divider */
+        .section-divider {
+            width: 96px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        /* Icon styling */
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+        }
+        
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
@@ -501,15 +574,17 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm <span style="color: var(--primary-color);">Aditya</span> — ML Engineer & Builder.</h1>
-                <p class="subtitle">Passionate about machine learning, entrepreneurship, and the relentless pursuit of performance—on and off the 🎾 court.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="mailto:anannapaneni96@gmail.com" class="btn btn-secondary">Book a Call</a>
+            <div class="hero-content animate-fade-up">
+                <div class="social-proof animate-fade-up" style="animation-delay: 0.1s;">
+                    <p class="social-proof-text">🏆 Recipient of Award from AWS CEO Adam Selipsky</p>
                 </div>
-                <div class="social-proof">
-                    <p class="social-proof-text">Recipient of Award from AWS CEO Adam Selipsky</p>
+                
+                <h1 class="animate-fade-up" style="animation-delay: 0.2s;">Hi, I'm <span style="color: var(--primary-color);">Aditya</span> — ML Engineer & Builder.</h1>
+                <p class="subtitle animate-fade-up" style="animation-delay: 0.3s;">Passionate about machine learning, entrepreneurship, and the relentless pursuit of performance—on and off the 🎾 court.</p>
+                
+                <div class="cta-buttons animate-fade-up" style="animation-delay: 0.4s;">
+                    <a href="#projects" class="btn btn-primary btn-enhanced">View My Work</a>
+                    <a href="mailto:anannapaneni96@gmail.com" class="btn btn-secondary btn-enhanced">Book a Call</a>
                 </div>
             </div>
         </div>
@@ -518,12 +593,15 @@
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-fade-up" style="animation-delay: 0.1s;">
                     <p>I'm an ML engineer and builder passionate about AI, product, and startups. I've created platforms like PharmaSage and CourtMates, and I thrive at the intersection of engineering precision and entrepreneurial speed. My goal is to build products that solve real problems and scale fast.</p>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate-fade-up" style="animation-delay: 0.2s;">
                     <img src="images/aditya_potrait.png" alt="Aditya Nannapaneni - ML Engineer & Builder" loading="lazy">
                 </div>
             </div>
@@ -535,9 +613,17 @@
     <!-- Projects Grid -->
     <section class="section projects" id="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-divider"></div>
+            </div>
             <div class="projects-grid">
-                <div class="project-card" tabindex="0" role="button" aria-label="View PharmaSage project">
+                <div class="project-card card-hover animate-fade-up" tabindex="0" role="button" aria-label="View PharmaSage project" style="animation-delay: 0.1s;">
+                    <div class="icon-container">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
                     <h3 class="project-title">PharmaSage</h3>
                     <p class="project-description">AI-powered pharma market intelligence platform that helps BD teams discover prospects faster and reduce research time by 60%.</p>
                     <div class="project-tags">
@@ -549,7 +635,12 @@
                     <a href="#projects" class="project-link">View Project →</a>
                 </div>
                 
-                <div class="project-card" tabindex="0" role="button" aria-label="View CourtMates project">
+                <div class="project-card card-hover animate-fade-up" tabindex="0" role="button" aria-label="View CourtMates project" style="animation-delay: 0.2s;">
+                    <div class="icon-container">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
                     <h3 class="project-title">CourtMates</h3>
                     <p class="project-description">Social platform connecting tennis players based on skill, location, and availability.</p>
                     <div class="project-tags">
@@ -560,7 +651,12 @@
                     <a href="#projects" class="project-link">View Project →</a>
                 </div>
                 
-                <div class="project-card" tabindex="0" role="button" aria-label="View Classical ML Projects">
+                <div class="project-card card-hover animate-fade-up" tabindex="0" role="button" aria-label="View Classical ML Projects" style="animation-delay: 0.3s;">
+                    <div class="icon-container">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
                     <h3 class="project-title">Classical ML Projects</h3>
                     <p class="project-description">Collection of machine learning projects including energy prediction, NLP, and time series forecasting.</p>
                     <div class="project-tags">
@@ -577,10 +673,11 @@
     <!-- Resume Section -->
     <section class="section resume" id="resume">
         <div class="container">
-            <div class="resume-content">
+            <div class="resume-content animate-fade-up">
                 <h2 class="section-title">Resume</h2>
-                <p class="resume-description">Download my resume to learn more about my experience and skills.</p>
-                <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download Resume</a>
+                <div class="section-divider"></div>
+                <p class="resume-description animate-fade-up" style="animation-delay: 0.1s;">Download my resume to learn more about my experience and skills.</p>
+                <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-enhanced animate-fade-up" style="animation-delay: 0.2s;">Download Resume</a>
             </div>
         </div>
     </section>
@@ -589,14 +686,17 @@
     <section class="section passions" id="passions">
         <div class="container">
             <div class="passions-content">
-                <h2 class="section-title">Beyond Work</h2>
-                <div class="passions-icons">
+                <div class="text-center mb-16 animate-fade-up">
+                    <h2 class="section-title">Beyond Work</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="passions-icons animate-fade-up" style="animation-delay: 0.1s;">
                     <div class="passion-icon" aria-label="Tennis">🎾</div>
                     <div class="passion-icon" aria-label="Mountains">🏔️</div>
                     <div class="passion-icon" aria-label="Fitness">🏋️‍♂️</div>
                     <div class="passion-icon" aria-label="Nature">🌿</div>
                 </div>
-                <p class="passions-text">Outside of building, I'm passionate about tennis, health, and the outdoors. Competing, training, and exploring nature keeps me balanced and inspired.</p>
+                <p class="passions-text animate-fade-up" style="animation-delay: 0.2s;">Outside of building, I'm passionate about tennis, health, and the outdoors. Competing, training, and exploring nature keeps me balanced and inspired.</p>
             </div>
         </div>
     </section>
@@ -605,15 +705,18 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="contact-content">
-                <h2 class="section-title">Let's build something together.</h2>
-                <div class="contact-buttons">
-                    <a href="mailto:anannapaneni96@gmail.com" class="contact-btn" aria-label="Send email">
+                <div class="text-center mb-16 animate-fade-up">
+                    <h2 class="section-title">Let's build something together.</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-buttons animate-fade-up" style="animation-delay: 0.1s;">
+                    <a href="mailto:anannapaneni96@gmail.com" class="contact-btn btn-enhanced" aria-label="Send email">
                         📧 Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/anannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="Connect on LinkedIn">
+                    <a href="https://www.linkedin.com/in/anannapaneni" target="_blank" rel="noopener" class="contact-btn btn-enhanced" aria-label="Connect on LinkedIn">
                         💼 LinkedIn
                     </a>
-                    <a href="https://github.com/aditya-nannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="View GitHub profile">
+                    <a href="https://github.com/aditya-nannapaneni" target="_blank" rel="noopener" class="contact-btn btn-enhanced" aria-label="View GitHub profile">
                         🐙 GitHub
                     </a>
                 </div>
@@ -636,7 +739,7 @@
             });
         });
 
-        // Add scroll reveal animation
+        // Enhanced scroll reveal animation for new animate-fade-up elements
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -645,18 +748,15 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // Trigger the CSS animation by adding a class
+                    entry.target.classList.add('animate-triggered');
                 }
             });
         }, observerOptions);
 
-        // Observe all sections for animation
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        // Observe all elements with animate-fade-up class
+        document.querySelectorAll('.animate-fade-up').forEach(element => {
+            observer.observe(element);
         });
 
         // Keyboard navigation for project cards
