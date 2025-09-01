@@ -337,6 +337,24 @@
             text-decoration: underline;
         }
         
+        /* Resume Section */
+        .resume {
+            background-color: var(--bg-color);
+        }
+        
+        .resume-content {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .resume-description {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
         /* Passions Section */
         .passions {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -488,7 +506,7 @@
                 <p class="subtitle">Passionate about machine learning, entrepreneurship, and the relentless pursuit of performance—on and off the 🎾 court.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="mailto:aditya@example.com" class="btn btn-secondary">Book a Call</a>
+                    <a href="mailto:anannapaneni96@gmail.com" class="btn btn-secondary">Book a Call</a>
                 </div>
                 <div class="social-proof">
                     <p class="social-proof-text">Recipient of Award from AWS CEO Adam Selipsky</p>
@@ -512,30 +530,25 @@
         </div>
     </section>
 
-    <!-- Featured Case Study -->
-    <section class="section featured-case-study" id="featured">
-        <div class="container">
-            <div class="case-study-card">
-                <h3 class="case-study-title">Featured Project — PharmaSage</h3>
-                <p class="case-study-context">PharmaSage is an AI-powered pharma market intelligence platform.</p>
-                <p class="case-study-approach">I designed and built it end-to-end in just 2 weeks, combining LLMs, custom scrapers, and intelligent ranking.</p>
-                <p class="case-study-outcome">Helps BD teams at pharma companies discover prospects faster and reduce research time by 60%.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">LLMs</span>
-                    <span class="tech-tag">Web Crawling</span>
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">AWS</span>
-                </div>
-                <a href="#projects" class="btn btn-primary">View Project</a>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Projects Grid -->
     <section class="section projects" id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
+                <div class="project-card" tabindex="0" role="button" aria-label="View PharmaSage project">
+                    <h3 class="project-title">PharmaSage</h3>
+                    <p class="project-description">AI-powered pharma market intelligence platform that helps BD teams discover prospects faster and reduce research time by 60%.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">LLMs</span>
+                        <span class="project-tag">Web Crawling</span>
+                        <span class="project-tag">Next.js</span>
+                        <span class="project-tag">AWS</span>
+                    </div>
+                    <a href="#projects" class="project-link">View Project →</a>
+                </div>
+                
                 <div class="project-card" tabindex="0" role="button" aria-label="View CourtMates project">
                     <h3 class="project-title">CourtMates</h3>
                     <p class="project-description">Social platform connecting tennis players based on skill, location, and availability.</p>
@@ -543,17 +556,6 @@
                         <span class="project-tag">React</span>
                         <span class="project-tag">Node.js</span>
                         <span class="project-tag">MongoDB</span>
-                    </div>
-                    <a href="#projects" class="project-link">View Project →</a>
-                </div>
-                
-                <div class="project-card" tabindex="0" role="button" aria-label="View ML Recommender project">
-                    <h3 class="project-title">Two-Tower Recommender</h3>
-                    <p class="project-description">Built a two-tower recommender using embeddings from MiniLM + customer firmographics.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">ML</span>
-                        <span class="project-tag">Embeddings</span>
-                        <span class="project-tag">Python</span>
                     </div>
                     <a href="#projects" class="project-link">View Project →</a>
                 </div>
@@ -568,6 +570,17 @@
                     </div>
                     <a href="/post/" class="project-link">View Projects →</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="section resume" id="resume">
+        <div class="container">
+            <div class="resume-content">
+                <h2 class="section-title">Resume</h2>
+                <p class="resume-description">Download my resume to learn more about my experience and skills.</p>
+                <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download Resume</a>
             </div>
         </div>
     </section>
@@ -594,17 +607,14 @@
             <div class="contact-content">
                 <h2 class="section-title">Let's build something together.</h2>
                 <div class="contact-buttons">
-                    <a href="mailto:aditya@example.com" class="contact-btn" aria-label="Send email">
+                    <a href="mailto:anannapaneni96@gmail.com" class="contact-btn" aria-label="Send email">
                         📧 Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/adityanannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="Connect on LinkedIn">
+                    <a href="https://www.linkedin.com/in/anannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="Connect on LinkedIn">
                         💼 LinkedIn
                     </a>
                     <a href="https://github.com/aditya-nannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="View GitHub profile">
                         🐙 GitHub
-                    </a>
-                    <a href="https://calendly.com/aditya-nannapaneni" target="_blank" rel="noopener" class="contact-btn" aria-label="Schedule a call">
-                        📅 Book a Call
                     </a>
                 </div>
             </div>
