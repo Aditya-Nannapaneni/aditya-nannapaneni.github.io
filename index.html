@@ -346,6 +346,174 @@
             text-decoration: underline;
         }
         
+        /* Research Section */
+        .research {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .research-content {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .research-paper {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: white;
+            border-radius: 16px;
+            padding: 40px 44px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Accent rail that grows on hover */
+        .research-paper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-color), #60a5fa);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .research-paper:hover,
+        .research-paper:focus-visible {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            outline: none;
+        }
+
+        .research-paper:hover::before,
+        .research-paper:focus-visible::before {
+            transform: scaleY(1);
+        }
+
+        .research-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .research-badge {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.08);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .research-venue {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .research-title {
+            font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .research-paper:hover .research-title,
+        .research-paper:focus-visible .research-title {
+            color: var(--primary-color);
+        }
+
+        .research-authors {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .research-authors .me {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        /* Abstract reveal */
+        .research-abstract {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.4s ease,
+                        margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .research-paper:hover .research-abstract,
+        .research-paper:focus-visible .research-abstract {
+            max-height: 420px;
+            opacity: 1;
+            margin-top: 24px;
+        }
+
+        .research-abstract-inner {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .research-abstract-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .research-abstract p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .research-cue {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 22px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .research-cue svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .research-paper:hover .research-cue svg,
+        .research-paper:focus-visible .research-cue svg {
+            transform: translateX(4px);
+        }
+
+        /* On touch devices (no hover), reveal the abstract by default */
+        @media (hover: none) {
+            .research-abstract {
+                max-height: 600px;
+                opacity: 1;
+                margin-top: 24px;
+            }
+        }
+
         /* Resume Section */
         .resume {
             background-color: var(--bg-color);
@@ -663,6 +831,7 @@
                 <a href="#hero" class="nav-logo">Aditya Nannapaneni</a>
                 <ul class="nav-links">
                     <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#resume" class="nav-link">Resume</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -704,6 +873,37 @@
     </section>
 
 
+
+    <!-- Research Section -->
+    <section class="section research" id="research">
+        <div class="container">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="section-title">Research</h2>
+            </div>
+            <div class="research-content animate-fade-up" style="animation-delay: 0.1s;">
+                <a href="https://arxiv.org/abs/2606.23915" target="_blank" rel="noopener" class="research-paper" aria-label="Read the paper: Do LLM Attribution Metrics Transfer? (opens on arXiv)">
+                    <div class="research-eyebrow">
+                        <span class="research-badge">arXiv</span>
+                        <span class="research-venue">Preprint · 2606.23915</span>
+                    </div>
+                    <h3 class="research-title">Do LLM Attribution Metrics Transfer? Auditing Retrieval-Augmented Generation Evaluation Across Datasets and Constructs</h3>
+                    <p class="research-authors">Tianyu Ding, Aditya Nannapaneni, Juan Pablo De la Cruz Weinstein · Amazon Web Services</p>
+                    <div class="research-abstract">
+                        <div class="research-abstract-inner">
+                            <div class="research-abstract-label">Abstract</div>
+                            <p>Practice often treats automatic metrics for attribution in LLM retrieval-augmented generation as interchangeable. We audit eight automatic scorers — lexical, embedding, and BERTScore baselines alongside entailment/grounding-trained models — across three evaluation constructs, asking whether any scorer transfers across the datasets of a construct. In generated-answer attribution, none does: the per-dataset rankings invert, and an off-the-shelf NLI scorer that is best on short-claim data (AUROC 0.90) collapses to chance (0.53) on long-form data, where BERTScore wins (0.91). This instability carries a concrete decision cost, so metric choice must be validated on the target dataset rather than learned from others. A prompt-based LLM judge avoids the chance-level collapses but is not uniformly best, ~100× costlier, and non-deterministic — relocating, not removing, the validation burden.</p>
+                        </div>
+                    </div>
+                    <span class="research-cue">
+                        Read the paper
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Grid -->
     <section class="section projects" id="projects">
