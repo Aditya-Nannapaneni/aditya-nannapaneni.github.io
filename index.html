@@ -354,6 +354,9 @@
         .research-content {
             max-width: 780px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
 
         .research-paper {
@@ -892,6 +895,26 @@
                         <div class="research-abstract-inner">
                             <div class="research-abstract-label">Abstract</div>
                             <p>Practice often treats automatic metrics for attribution in LLM retrieval-augmented generation as interchangeable. We audit eight automatic scorers — lexical, embedding, and BERTScore baselines alongside entailment/grounding-trained models — across three evaluation constructs, asking whether any scorer transfers across the datasets of a construct. In generated-answer attribution, none does: the per-dataset rankings invert, and an off-the-shelf NLI scorer that is best on short-claim data (AUROC 0.90) collapses to chance (0.53) on long-form data, where BERTScore wins (0.91). This instability carries a concrete decision cost, so metric choice must be validated on the target dataset rather than learned from others. A prompt-based LLM judge avoids the chance-level collapses but is not uniformly best, ~100× costlier, and non-deterministic — relocating, not removing, the validation burden.</p>
+                        </div>
+                    </div>
+                    <span class="research-cue">
+                        Read the paper
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://arxiv.org/abs/2606.30306" target="_blank" rel="noopener" class="research-paper" aria-label="Read the paper: Always-On Agents: A Survey of Persistent Memory, State, and Governance in LLM Agents (opens on arXiv)">
+                    <div class="research-eyebrow">
+                        <span class="research-badge">arXiv</span>
+                        <span class="research-venue">Survey · 2606.30306</span>
+                    </div>
+                    <h3 class="research-title">Always-On Agents: A Survey of Persistent Memory, State, and Governance in LLM Agents</h3>
+                    <p class="research-authors">Tianyu Ding, Aditya Nannapaneni, Bingfan Liu, Ling Zhang</p>
+                    <div class="research-abstract">
+                        <div class="research-abstract-inner">
+                            <div class="research-abstract-label">Abstract</div>
+                            <p>Always-on agents are systems whose future behavior depends on durable state accumulated across earlier interactions. We treat them as persistent-state systems whose operative state spans retrievable memories, task ledgers, permissions, credentials, commitments, provenance and audit records, shared state, trigger conditions, and externally committed effects. We read a 435-work corpus through six diagnostic axes — authority, scope, mutability, provenance, recoverability, and actionability — and a lifecycle in which state is written, validated, organized, retrieved, acted upon, updated, forgotten, audited, and sometimes rolled back, finding the literature concentrates more heavily on accumulating and retrieving state than on governing, recovering, or relinquishing it. We introduce the Always-On Evaluation Protocol (AOEP-v0), a pilot contract that scores state mutation and recovery obligations rather than answer quality alone, connecting always-on agents to databases, distributed systems, formal methods, capability security, and machine unlearning.</p>
                         </div>
                     </div>
                     <span class="research-cue">
