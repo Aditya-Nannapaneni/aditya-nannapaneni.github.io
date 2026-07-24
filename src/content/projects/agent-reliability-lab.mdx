@@ -1,0 +1,65 @@
+---
+title: Agent Reliability Lab
+summary: A reproducible evaluation platform for tool-using agents, covering trace replay, deterministic and model-based scoring, regression detection, cost, latency, and failure analysis.
+status: in-development
+statusLabel: In development
+year: "2026"
+role: Creator
+technologies:
+  - Python
+  - LLM agents
+  - Evaluation
+  - Observability
+tags:
+  - Agents
+  - Evaluation
+  - Observability
+  - LLM-as-a-Judge
+category: open-research
+featured: true
+featuredOrder: 2
+researchQuestion: How can tool-using agents be evaluated reproducibly across quality, cost, latency, and failure modes?
+---
+
+## Context
+
+Tool-using agents fail in ways that answer-quality metrics miss: bad tool selection, brittle retries, silent omissions, and regressions after prompt or model changes. Teams need a reproducible evaluation lab, not only demos.
+
+## My contribution
+
+I am designing Agent Reliability Lab as a reusable evaluation framework for a narrow tool-using research agent, with dataset-driven runs, full trace capture, offline replay, and multi-method scoring.
+
+## System design
+
+- **Initial agent use case:** a customer-research agent over synthetic company and account data.
+- **Agent actions:** search company records, retrieve account signals, select facts, generate an account brief, recommend outreach strategy, and cite sources.
+- **Evaluation framework:** dataset-driven runs, trace capture, offline replay, deterministic graders, LLM-based graders, human-review fields, prompt/model comparison, cost and latency tracking, tool-error and retry tracking, regression detection, and failure taxonomy.
+
+## Key technical decisions
+
+1. **Deterministic scoring versus LLM-as-a-Judge** — both are required; neither alone is sufficient.
+2. **Trace-first evaluation** — reproducibility depends on capturing tool calls and intermediate state, not only final answers.
+3. **Narrow initial agent** — a focused research agent keeps the benchmark measurable before generalizing.
+
+## Evaluation
+
+Minimum benchmark scope (planned):
+
+- 50 curated tasks
+- 3–5 tools
+- 2 model configurations
+- At least 3 scoring approaches
+- At least 8 documented failure categories
+- One baseline and one regression comparison
+
+Observed performance numbers are not available yet and will not be fabricated.
+
+## Results
+
+In development. Planned outputs include an open-source repository, architecture diagram, dataset schema, evaluation report, example traces, quality/cost comparison, and failure taxonomy.
+
+## What I learned
+
+- Agent evaluation is closer to systems testing than to single-turn LLM scoring.
+- Failure taxonomy work should precede leaderboard chasing.
+- Cost and latency belong in the same report as quality.

@@ -1,0 +1,57 @@
+---
+title: Semantic Retrieval and Recommendation
+summary: Production semantic retrieval and recommendation systems over enterprise account and opportunity data.
+status: confidential
+statusLabel: Shipped · Confidential
+year: "2021–2024"
+role: Senior Applied Scientist
+technologies:
+  - Embeddings
+  - Retrieval
+  - Ranking
+tags:
+  - Retrieval
+  - Recommendation
+  - Embeddings
+category: selected-systems
+featured: false
+keyResult: Production retrieval and recommendation systems used in decision workflows
+confidentialityNote: true
+---
+
+## Context
+
+Teams needed to retrieve relevant account context and recommend next actions from heterogeneous enterprise data. Keyword search and static rules were insufficient.
+
+## My contribution
+
+I built semantic retrieval and recommendation components, including embedding and ranking interfaces used in production decision workflows.
+
+## System design
+
+- **Inputs:** Enterprise account and opportunity records and related signals.
+- **Outputs:** Retrieved context and ranked recommendations for operators.
+- **Major components:** Embedding generation, retrieval index, ranking, and evaluation harnesses.
+- **Deployment boundary:** Internal AWS systems.
+
+This case study describes the system at a high level and excludes confidential AWS data, implementation details, and customer information.
+
+## Key technical decisions
+
+1. **Dense retrieval versus rules** — dense retrieval improved recall for nuanced account context.
+2. **Evaluation before index expansion** — retrieval quality was measured against task-relevant labels where available.
+3. **Shared embedding infrastructure** — avoided per-project embedding pipelines.
+
+## Evaluation
+
+Offline retrieval and ranking evaluation against task-specific relevance criteria, plus production monitoring. Proprietary corpora and exact index topology are omitted.
+
+## Results
+
+Shipped production retrieval and recommendation systems used in decision workflows. Exact proprietary performance figures beyond approved messaging are omitted.
+
+## What I learned
+
+- Retrieval quality is inseparable from the downstream decision task.
+- Shared embedding infrastructure compounds across products.
+- Monitoring stale indexes is as important as training better encoders.

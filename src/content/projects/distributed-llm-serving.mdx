@@ -1,0 +1,63 @@
+---
+title: Distributed LLM Serving
+summary: A reusable vLLM-based serving framework with PEFT and LoRA support that improved throughput, latency, and serving cost by approximately 5×.
+status: confidential
+statusLabel: Shipped · Confidential
+year: "2024–2025"
+role: Senior Applied Scientist
+technologies:
+  - vLLM
+  - PEFT
+  - LoRA
+  - Python
+  - LLM inference
+tags:
+  - LLM inference
+  - vLLM
+  - PEFT
+  - LoRA
+  - ML systems
+category: selected-systems
+featured: true
+featuredOrder: 1
+keyResult: Approximately 5× improvement in serving throughput, latency, and cost
+confidentialityNote: true
+---
+
+## Context
+
+Teams needed to serve fine-tuned and adapter-based LLMs with predictable latency and acceptable cost. Project-specific serving stacks were duplicated, hard to operate, and expensive at scale.
+
+## My contribution
+
+I designed and delivered a reusable serving framework on top of vLLM with PEFT and LoRA support, including the interfaces, evaluation criteria, and operational patterns needed for shared adoption.
+
+## System design
+
+- **Inputs:** Model checkpoints, LoRA/PEFT adapters, serving configuration, and request traffic.
+- **Outputs:** Low-latency completions with shared operational controls.
+- **Major components:** vLLM runtime, adapter loading, request batching, and monitoring hooks.
+- **Evaluation layer:** Throughput, latency, and cost comparisons against prior serving setups.
+- **Deployment boundary:** Internal AWS serving environments used by multiple science teams.
+
+This case study describes the system at a high level and excludes confidential AWS data, implementation details, and customer information.
+
+## Key technical decisions
+
+1. **Shared platform versus project-specific stacks** — a reusable serving layer reduced duplicated operational work.
+2. **PEFT/LoRA-aware serving** — adapter support avoided full-model replication for many use cases.
+3. **Quality versus latency and cost** — serving defaults were tuned for production traffic rather than research-only throughput.
+
+## Evaluation
+
+Compared the shared framework against prior serving setups using throughput, latency, and cost metrics under representative workloads. Exact customer traffic profiles and proprietary configuration details are omitted.
+
+## Results
+
+Approximately 5× improvement in serving performance across throughput, latency, and cost relative to the previous approach, at an approved reporting level.
+
+## What I learned
+
+- Adapter-aware serving changes the economics of multi-model deployment.
+- Shared ML systems succeed when evaluation and operational defaults are part of the product, not afterthoughts.
+- Cost and latency need the same rigor as model quality in production LLM systems.
