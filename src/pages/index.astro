@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProofBar from '../components/ProofBar.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FeaturedProjectCard from '../components/FeaturedProjectCard.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import { publications } from '../data/publications';
+import { experience } from '../data/experience';
+import { siteConfig } from '../data/socialLinks';
+import {
+  getFeaturedProjects,
+  projectHref,
+  projectKeyLine,
+} from '../lib/projects';
+
+const featured = await getFeaturedProjects();
+const homepageExperience = experience.slice(0, 3);
+---
+
+<BaseLayout>
+  <Hero />
+  <ProofBar />
+
+  <section class="section-space" aria-labelledby="selected-work">
+    <div class="container-site">
+      <SectionHeading title="Selected work" eyebrow="Systems and research tooling" />
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          featured.map((project) => (
+            <FeaturedProjectCard
+              href={projectHref(project)}
+              title={project.data.title}
+              summary={project.data.summary}
+              statusLabel={project.data.statusLabel}
+              tags={project.data.tags}
+              keyLine={projectKeyLine(project)}
+            />
+          ))
+        }
+      </div>
+      <p class="mt-8">
+        <a href="/work" class="link-accent text-sm">View all work →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-space border-t border-border" aria-labelledby="research">
+    <div class="container-site">
+      <SectionHeading title="Research" eyebrow="Publications" />
+      <div class="grid gap-4">
+        {publications.map((publication) => <PublicationItem publication={publication} />)}
+      </div>
+      <p class="mt-8">
+        <a href="/research" class="link-accent text-sm">Research overview →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-space border-t border-border" aria-labelledby="experience">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading title="Experience" eyebrow="Selected roles" />
+      <div>
+        {
+          homepageExperience.map((item) => (
+            <ExperienceItem item={item} variant="summary" />
+          ))
+        }
+      </div>
+      <p class="mt-4">
+        <a href="/experience" class="link-accent text-sm">Full experience →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-space border-t border-border" aria-labelledby="about-preview">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading title="About" />
+      <p class="prose-site">
+        I work at the intersection of applied research and production engineering.
+        I enjoy problems where model quality is only one part of the system:
+        evaluation, retrieval, latency, cost, reliability, and adoption matter
+        just as much. At AWS, I have built reusable ML infrastructure and
+        intelligent systems used across sales and science organizations. My
+        recent research focuses on LLM evaluation, retrieval-augmented
+        generation, and persistent agent memory. Outside work, I’m a competitive
+        tennis player and enjoy exploring ideas at the intersection of AI,
+        health, and sports.
+      </p>
+      <p class="mt-6">
+        <a href="/about" class="link-accent text-sm">More about me →</a>
+      </p>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: siteConfig.title,
+        description: siteConfig.description,
+        url: siteConfig.url,
+      })}
+    />
+  </Fragment>
+</BaseLayout>
