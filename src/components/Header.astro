@@ -16,16 +16,16 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
         primaryNav.map((item) => {
           const hrefPath = item.href.replace(/\/$/, '');
           const active =
-            !('external' in item && item.external) &&
+            !item.external &&
             (pathname === hrefPath || pathname.startsWith(`${hrefPath}/`));
           return (
             <ExternalLink
               href={item.href}
-              external={'external' in item && item.external}
+              external={item.external}
               class={`text-sm ${active ? 'text-ink' : 'text-ink-muted'} no-underline transition-opacity hover:text-ink hover:opacity-100`}
             >
               {item.label}
-              {'external' in item && item.external ? (
+              {item.external ? (
                 <span class="ml-0.5" aria-hidden="true">
                   ↗
                 </span>
@@ -56,11 +56,11 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
         primaryNav.map((item) => (
           <ExternalLink
             href={item.href}
-            external={'external' in item && item.external}
+            external={item.external}
             class="py-2 text-sm text-ink no-underline"
           >
             {item.label}
-            {'external' in item && item.external ? ' ↗' : ''}
+            {item.external ? ' ↗' : ''}
           </ExternalLink>
         ))
       }

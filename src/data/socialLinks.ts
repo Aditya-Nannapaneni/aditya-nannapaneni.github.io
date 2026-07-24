@@ -4,6 +4,12 @@ export type SocialLink = {
   external?: boolean;
 };
 
+export type NavItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
 export const siteConfig = {
   name: 'Aditya Nannapaneni',
   title: 'Aditya Nannapaneni — Applied AI Scientist and Research Engineer',
@@ -32,12 +38,12 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-export const primaryNav = [
+export const primaryNav: NavItem[] = [
   { label: 'Work', href: '/work' },
   { label: 'Research', href: '/research' },
   { label: 'Experience', href: '/experience' },
   { label: 'About', href: '/about' },
-] as const;
+];
 
 export const proofPoints = [
   'Senior Applied Scientist at AWS',
