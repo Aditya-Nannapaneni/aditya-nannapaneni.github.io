@@ -1,0 +1,58 @@
+---
+title: Shared ML Infrastructure
+summary: Reusable machine learning infrastructure adopted by more than 30 scientists across sales and science organizations.
+status: confidential
+statusLabel: Shipped · Confidential
+year: "2021–2025"
+role: Senior Applied Scientist
+technologies:
+  - ML platforms
+  - Python
+  - Evaluation
+  - Deployment
+tags:
+  - ML platforms
+  - Infrastructure
+  - Evaluation
+category: selected-systems
+featured: false
+keyResult: Adopted by more than 30 scientists
+confidentialityNote: true
+---
+
+## Context
+
+Science and sales organizations repeatedly rebuilt training, evaluation, and deployment plumbing for similar ML problems. Duplication slowed delivery and made quality uneven.
+
+## My contribution
+
+I designed and delivered shared ML infrastructure components—pipelines, evaluation patterns, and reusable serving/training interfaces—that multiple teams adopted.
+
+## System design
+
+- **Inputs:** Datasets, model training jobs, evaluation configs, and deployment requests from internal teams.
+- **Outputs:** Shared workflows for training, evaluation, and deployment.
+- **Major components:** Reusable pipelines, evaluation harnesses, and operational defaults.
+- **Deployment boundary:** Internal AWS environments.
+
+This case study describes the system at a high level and excludes confidential AWS data, implementation details, and customer information.
+
+## Key technical decisions
+
+1. **Shared platform versus project-specific implementation** — shared defaults reduced duplicated operational cost.
+2. **Evaluation baked into the platform** — teams inherited measurement patterns rather than inventing them per project.
+3. **Adoption over completeness** — the platform prioritized the workflows teams actually ran.
+
+## Evaluation
+
+Adoption and productivity were measured through internal usage. Exact proprietary architecture and customer data are omitted.
+
+## Results
+
+Adopted by more than 30 scientists. Related work contributed to approximately 3× improvement in scientist productivity in approved reporting contexts where measured.
+
+## What I learned
+
+- Platform success is measured by adoption and time-to-reliable delivery.
+- Good defaults beat optional best practices that nobody enables.
+- Evaluation infrastructure is part of the product surface.

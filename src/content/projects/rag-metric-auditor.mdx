@@ -1,0 +1,75 @@
+---
+title: RAG Metric Auditor
+summary: A toolkit for testing whether RAG evaluation metrics remain valid across datasets, domains, and evaluation constructs.
+status: in-development
+statusLabel: In development
+year: "2026"
+role: Co-author / Builder
+technologies:
+  - Python
+  - RAG evaluation
+  - Attribution metrics
+tags:
+  - RAG
+  - Attribution
+  - Evaluation
+  - Research tooling
+category: open-research
+featured: true
+featuredOrder: 4
+researchQuestion: Do RAG attribution metrics transfer across datasets and constructs, and how should practitioners validate them?
+links:
+  paper: https://arxiv.org/abs/2606.23915
+---
+
+## Context
+
+Practitioners often treat automatic RAG attribution metrics as interchangeable. Our research shows that metric rankings can invert across datasets, so metric choice needs target-dataset validation.
+
+## My contribution
+
+I am turning the attribution-metric audit research into a reusable Python evaluation package that reports transfer, stability, and calibration diagnostics rather than a single score.
+
+## System design
+
+Proposed API shape:
+
+```python
+report = audit_rag_metrics(
+    predictions=predictions,
+    references=references,
+    contexts=contexts,
+    metrics=[
+        "faithfulness",
+        "citation_correctness",
+        "attribution",
+    ],
+    slices=[
+        "dataset",
+        "domain",
+        "answer_length",
+    ],
+)
+```
+
+Required analyses include metric correlations, ranking stability, cross-dataset transfer, bootstrap confidence intervals, judge disagreement, calibration, dataset slices, distribution-shift warnings, and metric-card generation.
+
+## Key technical decisions
+
+1. **Audit over leaderboard** — the package emphasizes transfer and reliability diagnostics.
+2. **Slice-aware reporting** — aggregate AUROC alone hides dataset-specific failures.
+3. **Typed API and CLI** — reusable tooling needs installable interfaces, not only notebooks.
+
+## Evaluation
+
+The research audit covers eight automatic scorers across multiple constructs and datasets. Package-level benchmarks and installation artifacts are still in development.
+
+## Results
+
+In development. Planned outputs: installable Python package, typed API, CLI, example notebook, unit tests, documentation, and a sample evaluation report. Related preprint: [arXiv:2606.23915](https://arxiv.org/abs/2606.23915).
+
+## What I learned
+
+- Metric family and evaluation construct must be reported together.
+- Cross-dataset “best on average” selection can increase regret.
+- Tooling should make validation friction lower than copying a default metric.

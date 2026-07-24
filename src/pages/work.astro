@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FeaturedProjectCard from '../components/FeaturedProjectCard.astro';
+import {
+  getProjectsByCategory,
+  projectHref,
+  projectKeyLine,
+} from '../lib/projects';
+
+const selected = await getProjectsByCategory('selected-systems');
+const openResearch = await getProjectsByCategory('open-research');
+---
+
+<BaseLayout
+  title="Work — Aditya Nannapaneni"
+  description="Selected production AI systems, open research tooling, and evaluation frameworks."
+>
+  <section class="section-space">
+    <div class="container-site">
+      <SectionHeading
+        title="Work"
+        eyebrow="Production systems and research tooling"
+      />
+      <p class="prose-site mb-12">
+        Current work spans LLM serving, agent evaluation, retrieval,
+        recommendation, and reusable ML infrastructure. Incomplete projects are
+        labeled clearly.
+      </p>
+
+      <h2 class="mb-4 text-xl font-semibold text-ink">Selected systems</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          selected.map((project) => (
+            <FeaturedProjectCard
+              href={projectHref(project)}
+              title={project.data.title}
+              summary={project.data.summary}
+              statusLabel={project.data.statusLabel}
+              tags={project.data.tags}
+              keyLine={projectKeyLine(project)}
+            />
+          ))
+        }
+      </div>
+
+      <h2 class="mb-4 mt-16 text-xl font-semibold text-ink">
+        Open research and tools
+      </h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          openResearch.map((project) => (
+            <FeaturedProjectCard
+              href={projectHref(project)}
+              title={project.data.title}
+              summary={project.data.summary}
+              statusLabel={project.data.statusLabel}
+              tags={project.data.tags}
+              keyLine={projectKeyLine(project)}
+            />
+          ))
+        }
+      </div>
+
+      <div class="mt-16 border-t border-border pt-8">
+        <h2 class="text-xl font-semibold text-ink">Earlier work</h2>
+        <p class="mt-3 text-sm text-ink-muted">
+          Earlier forecasting, graph learning, NLP, and tabular modeling
+          projects live in the archive.
+        </p>
+        <p class="mt-4">
+          <a href="/archive" class="link-accent text-sm">View archive →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

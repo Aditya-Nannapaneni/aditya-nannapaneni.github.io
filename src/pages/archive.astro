@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import { archiveNote, earlierProjects } from '../data/earlierProjects';
+---
+
+<BaseLayout
+  title="Archive — Aditya Nannapaneni"
+  description="Earlier machine learning projects in forecasting, graph learning, NLP, and tabular modeling."
+>
+  <section class="section-space">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading
+        title="Earlier machine learning projects"
+        eyebrow="Archive"
+      />
+      <p class="prose-site mb-10">{archiveNote}</p>
+
+      <ul class="space-y-4">
+        {
+          earlierProjects.map((project) => (
+            <li class="border border-border bg-white p-5">
+              <h2 class="text-base font-semibold text-ink">{project.title}</h2>
+              <p class="mt-2 text-sm leading-6 text-ink-muted">{project.summary}</p>
+              <ul class="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {project.tags.map((tag) => (
+                  <li class="tag">{tag}</li>
+                ))}
+              </ul>
+              {project.github && (
+                <p class="mt-4">
+                  <ExternalLink href={project.github} class="link-accent text-sm">
+                    GitHub
+                  </ExternalLink>
+                </p>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="About — Aditya Nannapaneni"
+  description="About Aditya Nannapaneni, Senior Applied Scientist at AWS working on production AI systems and evaluation."
+>
+  <section class="section-space">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading title="About" eyebrow="Seattle, WA" />
+
+      <div class="mb-10 overflow-hidden border border-border bg-white sm:max-w-sm">
+        <img
+          src="/images/aditya_potrait.png"
+          alt="Portrait of Aditya Nannapaneni"
+          width="927"
+          height="854"
+          loading="lazy"
+          decoding="async"
+          class="h-auto w-full object-cover"
+        />
+      </div>
+
+      <div class="prose-site space-y-5">
+        <p>
+          I’m a Senior Applied Scientist at AWS. My technical focus is production
+          AI systems: LLM serving and evaluation, agent reliability, retrieval,
+          recommendation, and the shared infrastructure that lets research ideas
+          become durable products.
+        </p>
+        <p>
+          My working style sits between applied research and engineering
+          delivery. I care about model quality, but also about measurement,
+          latency, cost, failure modes, and whether teams can adopt the system
+          without heroic effort. Recent research covers RAG attribution metrics
+          and persistent memory and governance for always-on agents.
+        </p>
+        <p>
+          Outside AWS, I’m interested in building intelligent products at the
+          intersection of AI, health, and sports—including PharmaSage and
+          CourtMates. Entrepreneurship for me is another way to pressure-test
+          whether an idea survives contact with real users.
+        </p>
+        <p>
+          I’m based in Seattle and compete in tennis. Training and match play
+          shape how I think about performance: measure carefully, iterate under
+          constraints, and stay calm when the scoreboard moves.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

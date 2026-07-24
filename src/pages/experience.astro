@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import { experience } from '../data/experience';
+---
+
+<BaseLayout
+  title="Experience — Aditya Nannapaneni"
+  description="Experience at AWS, Embr Labs, and American Express building production machine learning systems."
+>
+  <section class="section-space">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading title="Experience" eyebrow="Chronological" />
+      <p class="prose-site mb-10">
+        Selected contributions rather than a full chronology of every role and
+        project.
+      </p>
+      <div>
+        {
+          experience.map((item) => (
+            <ExperienceItem item={item} variant="full" />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

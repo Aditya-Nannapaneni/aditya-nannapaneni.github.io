@@ -1,0 +1,17 @@
+---
+import { proofPoints } from '../data/socialLinks';
+---
+
+<section class="border-y border-border bg-white" aria-label="Highlights">
+  <div class="container-site">
+    <ul class="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+      {
+        proofPoints.map((point) => (
+          <li class="px-0 py-4 text-sm text-ink sm:px-5 sm:py-5 first:sm:pl-0 last:sm:pr-0">
+            {point}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

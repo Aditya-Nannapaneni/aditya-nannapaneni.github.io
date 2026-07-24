@@ -1,0 +1,72 @@
+---
+title: Persistent Agent Memory Benchmark
+summary: A benchmark for comparing memory strategies across multi-session tasks, stale information, contradictions, interruptions, deletions, and access-control boundaries.
+status: research-in-progress
+statusLabel: Research in progress
+year: "2026"
+role: Co-author / Researcher
+technologies:
+  - Python
+  - Agent memory
+  - Evaluation
+  - Benchmarks
+tags:
+  - Agent memory
+  - Benchmarks
+  - Evaluation
+  - Governance
+category: open-research
+featured: true
+featuredOrder: 3
+researchQuestion: Which memory strategies remain reliable when facts change, contradict, expire, or must be deleted?
+---
+
+## Context
+
+Always-on agents accumulate durable state across sessions. Memory strategies that look strong on short demos can fail under contradictions, stale facts, interruptions, deletions, and permission boundaries.
+
+## My contribution
+
+I am developing a benchmark that compares memory strategies under multi-session tasks, with explicit tests for governance and recovery—not only recall of useful facts.
+
+## System design
+
+Strategies under comparison:
+
+- No memory
+- Full history
+- Rolling summaries
+- Vector retrieval
+- Structured user state
+- Episodic memory
+- Hybrid memory
+
+Test categories include changing preferences, contradictory facts, expired information, interrupted workflows, multi-session goals, incorrect stored memories, user-requested deletion, and access-control boundaries.
+
+## Key technical decisions
+
+1. **Governance as a first-class axis** — deletion compliance and access boundaries are evaluated, not treated as edge cases.
+2. **Multiple memory families** — no single architecture is assumed to dominate.
+3. **Multi-metric reporting** — task completion alone is insufficient.
+
+## Evaluation
+
+Planned metrics:
+
+- Task completion
+- Memory precision and recall
+- Contradiction rate
+- Stale-memory usage
+- Recovery after interruption
+- Deletion compliance
+- Latency, token use, and cost
+
+## Results
+
+Research in progress. Planned outputs include a benchmark dataset, experiment runner, baseline results, results table, technical report, and limitations section. No observed metrics are claimed yet.
+
+## What I learned
+
+- Persistent agents are state systems; retrieval quality is only one slice of correctness.
+- Forgetting and rollback are as important as accumulation.
+- Benchmarks that ignore permissions will overstate progress.

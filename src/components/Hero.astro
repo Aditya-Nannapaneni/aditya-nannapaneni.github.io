@@ -1,0 +1,49 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import { socialLinks } from '../data/socialLinks';
+
+const secondary = socialLinks;
+---
+
+<section class="section-space">
+  <div class="container-site max-w-[760px]">
+    <h1 class="text-3xl font-semibold tracking-tight text-ink sm:text-5xl sm:leading-tight">
+      I build and evaluate production AI systems.
+    </h1>
+    <p class="mt-6 text-lg leading-8 text-ink-muted">
+      I’m a Senior Applied Scientist at AWS working across LLM systems, agent
+      evaluation, retrieval, recommendation, and reusable machine learning
+      infrastructure. My work combines applied research with end-to-end
+      production delivery.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/work"
+        class="inline-flex items-center border border-ink bg-ink px-4 py-2.5 text-sm text-white no-underline transition-opacity hover:opacity-90"
+      >
+        View selected work
+      </a>
+      <a
+        href="/research"
+        class="inline-flex items-center border border-border bg-white px-4 py-2.5 text-sm text-ink no-underline transition-opacity hover:border-ink"
+      >
+        Read my research
+      </a>
+    </div>
+
+    <nav class="mt-8 flex flex-wrap gap-x-5 gap-y-2" aria-label="Secondary links">
+      {
+        secondary.map((link) => (
+          <ExternalLink
+            href={link.href}
+            external={link.external}
+            class="text-sm text-ink-muted no-underline transition-opacity hover:text-ink"
+          >
+            {link.label}
+          </ExternalLink>
+        ))
+      }
+    </nav>
+  </div>
+</section>

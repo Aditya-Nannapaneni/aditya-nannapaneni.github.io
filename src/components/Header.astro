@@ -1,0 +1,82 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import { primaryNav, siteConfig } from '../data/socialLinks';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="border-b border-border bg-surface/95 backdrop-blur-sm sticky top-0 z-50">
+  <div class="container-site flex h-14 items-center justify-between gap-4">
+    <a href="/" class="link-quiet text-sm font-semibold tracking-tight">
+      {siteConfig.name}
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      {
+        primaryNav.map((item) => {
+          const hrefPath = item.href.replace(/\/$/, '');
+          const active =
+            !item.external &&
+            (pathname === hrefPath || pathname.startsWith(`${hrefPath}/`));
+          return (
+            <ExternalLink
+              href={item.href}
+              external={item.external}
+              class={`text-sm ${active ? 'text-ink' : 'text-ink-muted'} no-underline transition-opacity hover:text-ink hover:opacity-100`}
+            >
+              {item.label}
+              {item.external ? (
+                <span class="ml-0.5" aria-hidden="true">
+                  ↗
+                </span>
+              ) : null}
+            </ExternalLink>
+          );
+        })
+      }
+    </nav>
+
+    <button
+      type="button"
+      class="md:hidden inline-flex h-10 w-10 items-center justify-center border border-border text-ink"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <span class="sr-only">Open menu</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-border md:hidden" hidden>
+    <nav class="container-site flex flex-col gap-1 py-3" aria-label="Mobile">
+      {
+        primaryNav.map((item) => (
+          <ExternalLink
+            href={item.href}
+            external={item.external}
+            class="py-2 text-sm text-ink no-underline"
+          >
+            {item.label}
+            {item.external ? ' ↗' : ''}
+          </ExternalLink>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.hidden = open;
+      menu.classList.toggle('hidden', open);
+    });
+  }
+</script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aditya-nannapaneni.github.io/sitemap-index.xml

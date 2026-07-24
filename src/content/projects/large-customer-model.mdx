@@ -1,0 +1,57 @@
+---
+title: Large Customer Model
+summary: A production decision-intelligence system associated with a 15% improvement in pipeline velocity in NAMER.
+status: confidential
+statusLabel: Shipped · Confidential
+year: "2022–2024"
+role: Senior Applied Scientist
+technologies:
+  - Machine learning
+  - Decision intelligence
+  - Recommendation
+tags:
+  - Decision systems
+  - Recommendation
+  - Production ML
+category: selected-systems
+featured: false
+keyResult: 15% improvement in pipeline velocity in NAMER
+confidentialityNote: true
+---
+
+## Context
+
+Sales and account teams needed better prioritization and decision support over large customer portfolios. Fragmented signals made it hard to act consistently at scale.
+
+## My contribution
+
+I designed and delivered core modeling and decision-intelligence components of the Large Customer Model, including evaluation and production integration patterns used by go-to-market teams.
+
+## System design
+
+- **Inputs:** Account and opportunity signals available to internal teams.
+- **Outputs:** Prioritization and decision support used in pipeline workflows.
+- **Major components:** Representation learning, ranking/decision layers, and explainability surfaces.
+- **Deployment boundary:** Internal AWS production systems.
+
+This case study describes the system at a high level and excludes confidential AWS data, implementation details, and customer information.
+
+## Key technical decisions
+
+1. **Decision support over raw prediction dumps** — outputs were shaped for operator workflows.
+2. **Explainability as a product requirement** — adoption depended on inspectable recommendations.
+3. **Shared platform components** — reused ML infrastructure rather than a one-off model stack.
+
+## Evaluation
+
+Evaluated with online and offline measures appropriate to the decision workflow. Proprietary datasets, customer identifiers, and internal architecture details are omitted.
+
+## Results
+
+Associated with a 15% improvement in pipeline velocity in NAMER, reported at an approved level.
+
+## What I learned
+
+- Production ML impact depends on workflow fit as much as model lift.
+- Explainability can be a gating factor for adoption in sales systems.
+- Shared infrastructure shortens the path from prototype to durable product.

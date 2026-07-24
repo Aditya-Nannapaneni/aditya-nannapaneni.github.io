@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import {
+  publications,
+  researchInterests,
+  researchStatement,
+} from '../data/publications';
+import { getProjectsByCategory, projectHref } from '../lib/projects';
+
+const currentResearch = await getProjectsByCategory('open-research');
+
+const scholarlyJsonLd = publications.map((p) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  name: p.title,
+  author: p.authors.map((name) => ({ '@type': 'Person', name })),
+  datePublished: String(p.year),
+  url: p.arxivUrl,
+  identifier: `arXiv:${p.arxivId}`,
+}));
+---
+
+<BaseLayout
+  title="Research — Aditya Nannapaneni"
+  description="Research on LLM evaluation, RAG attribution metrics, and persistent always-on agents."
+>
+  <section class="section-space">
+    <div class="container-site max-w-[760px]">
+      <SectionHeading title="Research" eyebrow="Evaluation and reliable AI systems" />
+      <p class="prose-site">{researchStatement}</p>
+
+      <h2 class="mb-4 mt-14 text-xl font-semibold text-ink">Publications</h2>
+      <div class="grid gap-4">
+        {publications.map((publication) => <PublicationItem publication={publication} />)}
+      </div>
+
+      <h2 class="mb-4 mt-14 text-xl font-semibold text-ink">
+        Current research projects
+      </h2>
+      <ul class="space-y-4">
+        {
+          currentResearch.map((project) => (
+            <li class="border border-border bg-white p-5">
+              <a href={projectHref(project)} class="text-base font-semibold text-ink no-underline hover:underline">
+                {project.data.title}
+              </a>
+              <p class="mt-2 text-sm text-ink-muted">{project.data.summary}</p>
+              {project.data.statusLabel && (
+                <p class="mt-3">
+                  <span class="status-pill">{project.data.statusLabel}</span>
+                </p>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2 class="mb-4 mt-14 text-xl font-semibold text-ink">Research interests</h2>
+      <ul class="flex flex-wrap gap-x-4 gap-y-2">
+        {
+          researchInterests.map((interest) => (
+            <li class="tag border border-border px-2 py-1">{interest}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    {
+      scholarlyJsonLd.map((item) => (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    }
+  </Fragment>
+</BaseLayout>

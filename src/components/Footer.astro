@@ -1,0 +1,33 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import { socialLinks, siteConfig } from '../data/socialLinks';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="divider mt-8">
+  <div class="container-site section-space !py-12">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <p class="text-sm font-semibold text-ink">{siteConfig.name}</p>
+        <p class="mt-1 text-sm text-ink-muted">{siteConfig.location}</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer">
+        {
+          socialLinks.map((link) => (
+            <ExternalLink
+              href={link.href}
+              external={link.external}
+              class="text-sm text-ink-muted no-underline transition-opacity hover:text-ink"
+            >
+              {link.label}
+            </ExternalLink>
+          ))
+        }
+      </nav>
+    </div>
+    <p class="mt-8 font-mono text-xs text-ink-faint">
+      © {year} {siteConfig.name}
+    </p>
+  </div>
+</footer>
