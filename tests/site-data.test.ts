@@ -7,8 +7,9 @@ import { primaryNav, socialLinks, proofPoints } from '../src/data/socialLinks';
 describe('site data integrity', () => {
   it('exposes primary navigation without Contact', () => {
     const labels = primaryNav.map((item) => item.label);
-    expect(labels).toEqual(['Work', 'Research', 'Experience', 'About', 'Resume']);
+    expect(labels).toEqual(['Work', 'Research', 'Experience', 'About']);
     expect(labels).not.toContain('Contact');
+    expect(labels).not.toContain('Resume');
   });
 
   it('keeps external social links with safe targets', () => {

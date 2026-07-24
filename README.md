@@ -65,16 +65,6 @@ Edit `src/data/publications.ts`. Include full author order, arXiv metadata, a tw
 
 Label venue as `arXiv preprint` unless a paper is actually accepted somewhere.
 
-## Updating the resume
-
-Place the PDF at:
-
-```text
-public/resume/aditya-nannapaneni-resume.pdf
-```
-
-Header, hero, experience, and footer already link to that path.
-
 ## Deployment
 
 Pushes to `main` run:
@@ -90,9 +80,9 @@ Legacy static Hugo output is preserved on branch `legacy-static-site` and tag `b
 
 ## Known placeholders
 
-- Resume PDF is not yet in the repository.
 - Google Scholar URL is not configured (link omitted until provided).
 - Agent Reliability Lab, Persistent Agent Memory Benchmark, and RAG Metric Auditor are labeled in progress / in development without fabricated metrics.
+- Resume is intentionally omitted from navigation and contact links.
 
 ## License
 

@@ -36,9 +36,6 @@ for (const file of htmlFiles) {
     const clean = href.split('#')[0].split('?')[0];
     if (!clean.startsWith('/')) continue;
 
-    // Resume PDF may be absent until provided
-    if (clean === '/resume/aditya-nannapaneni-resume.pdf') continue;
-
     const candidates = [
       path.join(dist, clean),
       path.join(dist, clean, 'index.html'),

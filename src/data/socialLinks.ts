@@ -16,11 +16,6 @@ export const siteConfig = {
 
 export const socialLinks: SocialLink[] = [
   {
-    label: 'Resume',
-    href: '/resume/aditya-nannapaneni-resume.pdf',
-    external: true,
-  },
-  {
     label: 'GitHub',
     href: 'https://github.com/aditya-nannapaneni',
     external: true,
@@ -42,11 +37,6 @@ export const primaryNav = [
   { label: 'Research', href: '/research' },
   { label: 'Experience', href: '/experience' },
   { label: 'About', href: '/about' },
-  {
-    label: 'Resume',
-    href: '/resume/aditya-nannapaneni-resume.pdf',
-    external: true,
-  },
 ] as const;
 
 export const proofPoints = [
