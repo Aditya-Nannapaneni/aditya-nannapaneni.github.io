@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --color-ink: #111111;
+  --color-ink-muted: #4b5563;
+  --color-ink-faint: #6b7280;
+  --color-surface: #fafaf9;
+  --color-border: #e5e7eb;
+  --color-accent: #1d4ed8;
+  --color-accent-soft: #eff6ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1120px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .prose-site {
+    @apply max-w-[760px] text-[17px] leading-7 text-ink-muted;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-24;
+  }
+
+  .link-quiet {
+    @apply text-ink no-underline transition-opacity hover:opacity-70;
+  }
+
+  .link-accent {
+    @apply text-accent no-underline transition-opacity hover:opacity-80 hover:underline;
+  }
+
+  .divider {
+    @apply border-t border-border;
+  }
+
+  .tag {
+    @apply font-mono text-xs tracking-wide text-ink-muted;
+  }
+
+  .status-pill {
+    @apply inline-block border border-border px-2 py-0.5 font-mono text-xs text-ink-muted;
+  }
+}

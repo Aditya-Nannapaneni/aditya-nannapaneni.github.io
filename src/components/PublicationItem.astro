@@ -1,0 +1,80 @@
+---
+import type { Publication } from '../data/publications';
+import ExternalLink from './ExternalLink.astro';
+
+interface Props {
+  publication: Publication;
+  highlightAuthor?: string;
+}
+
+const { publication, highlightAuthor = 'Aditya Nannapaneni' } = Astro.props;
+const detailsId = `bibtex-${publication.id}`;
+---
+
+<article class="border border-border bg-white p-6">
+  <p class="font-mono text-xs text-ink-faint">
+    {publication.venueLabel} · {publication.year} · {publication.arxivId}
+  </p>
+  <h3 class="mt-2 text-lg font-semibold tracking-tight text-ink">
+    {publication.title}
+  </h3>
+  <p class="mt-3 text-sm leading-6 text-ink-muted">
+    {
+      publication.authors.map((author, index) => (
+        <>
+          {author === highlightAuthor ? (
+            <strong class="font-semibold text-ink">{author}</strong>
+          ) : (
+            author
+          )}
+          {index < publication.authors.length - 1 ? ', ' : ''}
+        </>
+      ))
+    }
+  </p>
+  <p class="mt-4 text-sm leading-6 text-ink-muted">{publication.summary}</p>
+  <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+    <ExternalLink href={publication.arxivUrl} class="link-accent">
+      arXiv
+    </ExternalLink>
+    <ExternalLink href={publication.pdfUrl} class="link-accent">
+      PDF
+    </ExternalLink>
+    {
+      publication.codeUrl && (
+        <ExternalLink href={publication.codeUrl} class="link-accent">
+          Code
+        </ExternalLink>
+      )
+    }
+    <button
+      type="button"
+      class="link-accent cursor-pointer border-0 bg-transparent p-0 text-sm"
+      data-bibtex-toggle
+      aria-expanded="false"
+      aria-controls={detailsId}
+    >
+      BibTeX
+    </button>
+  </div>
+  <pre
+    id={detailsId}
+    class="mt-4 hidden overflow-x-auto border border-border bg-surface p-3 font-mono text-xs text-ink-muted"
+    hidden
+  ><code>{publication.bibtex}</code></pre>
+</article>
+
+<script>
+  document.querySelectorAll('[data-bibtex-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const id = button.getAttribute('aria-controls');
+      if (!id) return;
+      const panel = document.getElementById(id);
+      if (!panel) return;
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+      panel.classList.toggle('hidden', open);
+    });
+  });
+</script>

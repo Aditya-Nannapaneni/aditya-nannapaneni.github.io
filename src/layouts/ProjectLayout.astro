@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Callout from '../components/Callout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, summary, statusLabel, status, year, role, technologies, links, confidentialityNote, keyResult, researchQuestion } =
+  project.data;
+
+const pageTitle = `${title} — Aditya Nannapaneni`;
+---
+
+<BaseLayout title={pageTitle} description={summary} canonicalPath={`/projects/${project.id}/`}>
+  <article class="section-space">
+    <div class="container-site max-w-[760px]">
+      <p class="font-mono text-xs uppercase tracking-wide text-ink-faint">
+        <a href="/work" class="link-accent">Work</a>
+        <span aria-hidden="true"> / </span>
+        Case study
+      </p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+        {title}
+      </h1>
+      <p class="mt-4 text-lg leading-8 text-ink-muted">{summary}</p>
+
+      <dl class="mt-8 grid grid-cols-1 gap-4 border border-border bg-white p-5 sm:grid-cols-2">
+        <div>
+          <dt class="font-mono text-xs uppercase tracking-wide text-ink-faint">Status</dt>
+          <dd class="mt-1 text-sm text-ink">{statusLabel ?? status}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-xs uppercase tracking-wide text-ink-faint">Year</dt>
+          <dd class="mt-1 text-sm text-ink">{year}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-xs uppercase tracking-wide text-ink-faint">Role</dt>
+          <dd class="mt-1 text-sm text-ink">{role}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-xs uppercase tracking-wide text-ink-faint">Technologies</dt>
+          <dd class="mt-1 text-sm text-ink">{technologies.join(', ')}</dd>
+        </div>
+      </dl>
+
+      {
+        (keyResult || researchQuestion) && (
+          <p class="mt-6 border-l-2 border-accent pl-4 text-sm text-ink">
+            {keyResult ?? researchQuestion}
+          </p>
+        )
+      }
+
+      {
+        confidentialityNote && (
+          <div class="mt-6">
+            <Callout title="Confidentiality">
+              This case study describes the system at a high level and excludes
+              confidential AWS data, implementation details, and customer
+              information.
+            </Callout>
+          </div>
+        )
+      }
+
+      {
+        links && Object.values(links).some(Boolean) && (
+          <nav class="mt-6 flex flex-wrap gap-4 text-sm" aria-label="Project links">
+            {links.github && (
+              <ExternalLink href={links.github} class="link-accent">
+                GitHub
+              </ExternalLink>
+            )}
+            {links.paper && (
+              <ExternalLink href={links.paper} class="link-accent">
+                Paper
+              </ExternalLink>
+            )}
+            {links.demo && (
+              <ExternalLink href={links.demo} class="link-accent">
+                Demo
+              </ExternalLink>
+            )}
+            {links.report && (
+              <ExternalLink href={links.report} class="link-accent">
+                Technical report
+              </ExternalLink>
+            )}
+            {links.slides && (
+              <ExternalLink href={links.slides} class="link-accent">
+                Slides
+              </ExternalLink>
+            )}
+          </nav>
+        )
+      }
+
+      <div class="prose-site mt-12 space-y-4 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_ul]:list-disc [&_ul]:pl-5 [&_pre]:overflow-x-auto [&_pre]:border [&_pre]:border-border [&_pre]:bg-white [&_pre]:p-4 [&_pre]:text-sm [&_a]:text-accent">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

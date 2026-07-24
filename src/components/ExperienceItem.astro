@@ -1,0 +1,50 @@
+---
+import type { ExperienceItem } from '../data/experience';
+
+interface Props {
+  item: ExperienceItem;
+  variant?: 'summary' | 'full';
+}
+
+const { item, variant = 'summary' } = Astro.props;
+---
+
+<article class="border-t border-border py-8 first:border-t-0 first:pt-0">
+  <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+    <h3 class="text-lg font-semibold text-ink">{item.company}</h3>
+    <p class="font-mono text-xs text-ink-faint">{item.dates}</p>
+  </div>
+  <p class="mt-1 text-sm text-ink-muted">
+    {item.role}
+    {item.location ? ` · ${item.location}` : ''}
+  </p>
+  <p class="mt-4 text-sm leading-6 text-ink-muted">{item.summary}</p>
+
+  {
+    variant === 'summary' && item.homepageOutcomes && (
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-ink">
+        {item.homepageOutcomes.map((outcome) => (
+          <li>{outcome}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    variant === 'full' &&
+      item.contributions?.map((group) => (
+        <div class="mt-6">
+          {group.group && (
+            <h4 class="font-mono text-xs uppercase tracking-wide text-ink-faint">
+              {group.group}
+            </h4>
+          )}
+          <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-ink-muted">
+            {group.items.map((entry) => (
+              <li>{entry}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+  }
+</article>
